@@ -77,6 +77,8 @@
   </header>
   <!-- ***** Header Area End ***** -->
  
+  <!-- ***** Main Banner Start***** -->
+
   <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
     <div class="container">
       <div class="row">
@@ -124,8 +126,43 @@
       </div>
     </div>
   </div>
+  <!-- ***** Main Banner End***** -->
 
+  <!-- ****** Modal Start **** -->
+  <div id="myModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-login">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="avatar">
+            <img src="{{url_for('static',filename='images/fire.png')}}" alt="Avatar">
+          </div>				
+          <h4 class="modal-title">Register</h4>	
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body m-4">
+          <form action="/examples/actions/confirmation.php" method="post">
+            <div class="form-group mb-3">
+              <input type="text" class="form-control" name="name" placeholder="Username" required="required">		
+            </div>
+            <div class="form-group mb-3">
+              <input type="number" class="form-control" name="p-number" placeholder="phone number" required="required">	
+            </div>
+            <div class="form-group mb-3">
+              <input type="file" accept="image/*" class="form-control" id="profile-upload"
+                  onchange="loadFile()" name="img" />
+              <br />
+          </div>        
+            <div class="form-group mb-3 text-center">
+              <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> 
+   <!--***** Modal End *****  -->
 
+   <!-- ****Footer Start -->
     <footer>
         <div class="container">
             <div class="row">
@@ -135,6 +172,7 @@
             </div>
         </div>
     </footer>
+    <!-- ****Footer Ends***** -->
 
     <!-- Scripts -->
 
