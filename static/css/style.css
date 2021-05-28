@@ -9,6 +9,7 @@ Table of contents
 06. services
 07. testimonials
 08. contact
+09. modal
 09. footer
 --------------------------------------------- */
 /* 
@@ -926,3 +927,46 @@ footer p {
     color: #b8241b;
     transition: all 0.5s;
 }
+/* 
+---------------------------------------------
+Modal Style
+--------------------------------------------- 
+*/
+
+.btn{
+    background-color: red;
+    box-shadow: 5px 5px 5px rgb(184, 114, 114);
+    border: none;
+  }
+  .btn:hover{
+    background-color: #a51d1d;
+  }	
+  .modal-login .avatar {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -70px;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    z-index: 9;
+    background: #FE4321;
+    padding: 15px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  }
+  .modal-login .avatar img {
+    width: 100%;
+  }
+  .modal-login.modal-dialog {
+    margin-top: 80px;
+  }
+  .close {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  border: none;
+  border-radius: 20px;
+  }	
+    
