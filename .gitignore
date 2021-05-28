@@ -2,3 +2,4 @@ vendor/
 venv/
 .vscode/
 __pycache__/
+get-pip.py/

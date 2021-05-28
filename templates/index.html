@@ -15,16 +15,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
         rel="stylesheet">
 
-    <title>Fire Fighter</title>
+    <title>{%block title%}{%endblock%}</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{{ url_for('vendor',filename='bootstrap/css/bootstrap.min.css')}}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}"/>
     <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{ url_for('static',filename='css/fontawesome.css')}}"/>
     <!-- <link rel="stylesheet" href="assets/css/fontawesome.css"> -->
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/templatemo-seo-dream.css')}}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}"/>
     <!-- <link rel="stylesheet" href="assets/css/templatemo-seo-dream.css"> -->
     <link rel="stylesheet" href="{{ url_for('static',filename='css/animated.css')}}"/>
     <!-- <link rel="stylesheet" href="assets/css/animated.css"> -->
@@ -33,6 +33,21 @@
 </head>
 
 <body>
+    <!-- Pre-loader -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+          <span class="dot"></span>
+          <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+
+
+
     <footer>
         <div class="container">
             <div class="row">
@@ -45,9 +60,9 @@
 
     <!-- Scripts -->
 
-    <script src="{{url_for('vendor', filename='jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
     <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
-    <script src="{{url_for('vendor', filename='bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
     <script src="{{url_for('static', filename='js/owl-carousel.js')}}"></script>
     <!-- <script src="assets/js/owl-carousel.js"></script> -->
