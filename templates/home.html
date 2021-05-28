@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/css/home.css">
-    <title>Document</title>
-    
-</head>
-<body>
+{%extends 'base.html'%} {%block title%}Fire Fighter{%endblock%}{%block template%}
+
+<link rel="stylesheet" href="{{ url_for('static',filename='css/home.css')}}"/>
+
 <script>
     function myMap() {
 var mapProp= {
@@ -40,13 +32,12 @@ type="text/javascript"></script>
     </div>
     <hr>
     <div class="text-center">
-        <button class="js-confirm" type="submit" data-message="Are you sure you want to call an emergency?" data-confirm-text="Yes" data-cancel-text="Cancel">SOS</button>
+        <button id = "call-btn"class="js-confirm" type="submit" data-message="Are you sure you want to call an emergency?" data-confirm-text="Yes" data-cancel-text="Cancel">SOS</button>
     </div>
     <p id="result" class="result"></p>
    </div>
    </div>
 </div>
-
-<script src="/static/js/home.js"></script>
-</body>
-</html>
+<script src="{{url_for('static', filename='js/home.js')}}"></script>
+<!-- <script src="/static/js/home.js"></script> -->
+{%endblock%}
