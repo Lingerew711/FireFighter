@@ -830,3 +830,99 @@ header
       display: flex !important;
     }
   }
+
+  /* 
+---------------------------------------------
+Banner Style
+--------------------------------------------- 
+*/
+
+.main-banner {
+    background-image: url(../images/banner-dec.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding: 226px 0px 120px 0px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .main-banner:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 100px;
+    width: 212px;
+    height: 653px;
+    z-index: -1;
+  }
+  
+  .main-banner:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 100px;
+    width: 1159px;
+    height: 797px;
+    z-index: -1;
+  }
+  
+  .main-banner .left-content {
+    margin-right: 45px;
+  }
+  
+  .main-banner .left-content h6 {
+    text-transform: capitalize;
+    font-size: 15px;
+    font-weight: 400;
+    color: #2a2a2a;
+    margin-bottom: 8px;
+  }
+  
+  .main-banner .left-content h4 {
+    z-index: 2;
+    position: relative;
+    font-weight: 700;
+    font-size: 20px;
+    color: #2a2a2a;
+  }
+  
+  .main-banner .left-content h2 {
+    border-top: 1px solid #eee;
+    margin-top: 30px;
+    padding-top: 20px;
+    margin-bottom: 45px;
+    font-size: 60px;
+    font-weight: 800;
+    color: #2a2a2a;
+    line-height: 72px;
+    background: #fa9d4d;
+    background: -webkit-linear-gradient(to right, #fa9d4d 0%, #ff4f6b 100%);
+    background: -moz-linear-gradient(to right, #fa9d4d 0%, #ff4f6b 100%);
+    background: linear-gradient(to right, #fa9d4d 0%, #ff4f6b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .main-banner .right-image {
+    text-align: right;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .main-banner .right-image img {
+    max-width: 593px;
+  }
+
+/* 
+---------------------------------------------
+Footer Style
+--------------------------------------------- 
+*/
+
+footer p {
+    text-align: center;
+    margin: 30px 0px;
+    color: #b8241b;
+    transition: all 0.5s;
+}
