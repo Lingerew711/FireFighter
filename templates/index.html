@@ -33,7 +33,12 @@
                   </div>
                   <div class="col-lg-12">
                     <div class="main-green-button scroll-to-section">
-                      <a href="" class="trigger-btn" data-toggle="modal" data-target="#myModal">Login</a>
+                      <a href="" class="trigger-btn" data-toggle="modal" data-target="#myModal">Register</a>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="main-green-button scroll-to-section">
+                      <a href="" class="trigger-btn" data-toggle="modal" data-target="#Login">Login</a>
                     </div>
                   </div>
                 </div>
@@ -76,6 +81,30 @@
               <br />
           </div>        
             <div class="form-group mb-3 text-center">
+              <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+  <div id="Login" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-login">
+      <div class="modal-content">
+        <div class="modal-header">				
+          <h4 class="modal-title">Login</h4>	
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body m-4">
+          <form action="/home" method="POST" enctype="multipart/form-data">
+            <div class="form-group mb-3">
+              <input type="text" class="form-control" name="c_name" placeholder="Username" required="required">		
+            </div>
+            <div class="form-group mb-3">
+              <input type="tel" class="form-control" name="p_number" placeholder="phone number" required="required">	
+            </div>        
+            <div class="form-group mb-3 text-center">
               <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
             </div>
           </form>
@@ -83,6 +112,7 @@
       </div>
     </div>
   </div> 
+
    <!--***** Modal End *****  -->
 
    <!-- ****Services Start**** -->

@@ -15,6 +15,8 @@ from flask import flash, Flask, session, current_app, Blueprint,flash,g,redirect
 
 app = Flask(__name__)
 
+app.secret_key="1234567lingebookstore"
+
 engine = create_engine("postgresql://postgres:linge531@localhost:5432/fire-fight-app")
 db=scoped_session(sessionmaker(bind=engine))
 
@@ -63,8 +65,13 @@ def init_app(app):
 @app.route('/')
 def index():
     return render_template("index.html")
+@app.route("/home")
+def home():
+    return render_template('index.html')
 
-@app.route("/home" , methods=["GET", "POST"])
+######### REGISTER #############
+
+@app.route('/home' , methods=["GET", "POST"])
 def register():
 
     if request.method == 'POST':
@@ -82,52 +89,32 @@ def register():
                          }
                      )
             db.commit()
+            session['logged_in'] = True
+            session['c_name'] = c_name
         else:
             return render_template('index.html',message="Username Exists. Try Another.")
-        return render_template("home.html" ,errors=["registered Successfully"])
+        return render_template("home.html" ,errors=["Registered Successfully"])
     return render_template('home.html')
-    # if request.method == 'POST':
-    #     model.save()
-    # if request.method == "GET":
-    #     return redirect(url_for("index"))
-    # c_name = request.form.get('name')
-    # p_number = request.form.get('p_number')
-    # error = {"errors":[]}
-    # inputs = [c_name ,p_number]
-    # values = ["name" , "phone number"]
-    # if None in inputs:
-    #     for a in range(len(inputs)):
-    #         if inputs[a] is None:
-    #             error["errors"].append(f"{values[a]} can not be empty")
-    # else:
-    #     if len(c_name.strip()) == 0:
-    #         error["errors"].append("name can not be empty") 
-    #     if len(p_number.strip()) == 0:
-    #         error["errors"].append("Phone number can not be empty")
-    #     elif len(p_number.strip()) > 15:
-    #         error["errors"].append("Phone number can be not this long!!")
-    #     if len(error["errors"]) == 0:
-    #         db = get_db()
-    #         res = db.execute("SELECT COUNT(*) FROM USERS WHERE u_id = :u_id" , {"u_id" : user_id}).fetchone()
-    #         count =[x for x in res]
-    #         if count[0] == 0:
-    #             img = request.files.get("img")
-    #             if  img:
-    #                 file_path_name = os.path.join(current_app.config["UPLOAD_FOLDER "], c_name.strip() + "." + img.filename.rsplit(".", 1)[1])
-    #                 img.save(file_path_name)
-    #                 db.execute(
-    #                     "INSERT INTO USERS(c_name,p_number, profile_url) VALUES( :u_name,:p_number, :profile_url )" , {
-    #                         "u_name" :c_name.strip(),
-    #                         "p_number": p_name.strip(),
-    #                         "profile_url" : file_path_name.strip()
-    #                     }
-    #                 )
-    #                 db.commit()
-    #             else:
-    #                 error["errors"].append("You have to upload profile picture")
-    #             return render_template("home.html" ,errors=["registered Successfully"])
-    #         else:
-    #             return render_template("index.html" ,errors=error["errors"])
-    #     else:
-    #         return render_template("index.html" ,errors=error["errors"])
+
+######## LOGIN ##########
+@app.route('/home', methods=["GET", "POST"])
+def login():
+    if request.method == 'POST':
+        c_name = request.form.get('c_name')
+        p_number = request.form.get('p_number')
+        error = {"errors" : []} 
+        if c_name is None or len(c_name) == 0:
+            error["errors"].append("name is required")
+        elif p_number is None:
+            error["errors"].append("phone number is required")
+        user = db.execute("select * from USERS where c_name=:c_name and p_number=:p_number;",{'c_name':c_name,'p_number':p_number})
+        if user.rowcount == 0:
+            return render_template('index.html',message="Wrong Username")
+        session['logged_in'] = True
+        session['c_name'] = request.form['c_name']
+        return render_template('home.html')
+    return render_template('index.html')
+
     
+if __name__ == "__main__":
+    app.run(debug = True)
