@@ -19,6 +19,8 @@ type="text/javascript"></script>
 
 <div class="info mt-5 mb-5">
     <h2 class="location mb-5">YOUR LOCATION</h2>
+   <form action="" method="">
+
     <input type="text" placeholder="Addis Ababa, Ethiopia, St. Georege street, 1000"></input><button class="button button-rounded-right float-right mr-5">Change</button>
     <hr>
    <div>
@@ -31,11 +33,14 @@ type="text/javascript"></script>
         <input type="text" placeholder="EX. HOME, WORK">
     </div>
     <hr>
-    <div class="text-center">
-        <button id = "call-btn"class="js-confirm" type="submit" data-message="Are you sure you want to call an emergency?" data-confirm-text="Yes" data-cancel-text="Cancel">SOS</button>
-    </div>
-    <p id="result" class="result"></p>
-   </div>
+    
+
+   </form>
+   <div class="text-center">
+    <button id = "call-btn"class="js-confirm" type="submit" data-message="Are you sure you want to call an emergency?" data-confirm-text="Yes" data-cancel-text="Cancel">SOS</button>
+</div>
+<p id="result" class="result"></p>
+</div>   
    </div>
 </div>
 <script src="{{url_for('static', filename='js/home.js')}}"></script>

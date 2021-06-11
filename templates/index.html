@@ -31,14 +31,14 @@
                   <div class="col-lg-12">
                     <h2>Emergency &amp; Fire Fighting Agency</h2>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-6">
                     <div class="main-green-button scroll-to-section">
                       <a href="" class="trigger-btn" data-toggle="modal" data-target="#myModal">Register</a>
                     </div>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-6">
                     <div class="main-green-button scroll-to-section">
-                      <a href="" class="trigger-btn" data-toggle="modal" data-target="#Login">Login</a>
+                      <a href="" class="trigger-btn" data-toggle="modal" data-target="#loginModal">Login</a>
                     </div>
                   </div>
                 </div>
@@ -61,14 +61,8 @@
     <div class="modal-dialog modal-login">
       <div class="modal-content">
         <div class="modal-header">
-          <div class="avatar">
-            <img src="{{url_for('static',filename='images/default.png')}}" alt="Avatar">
-          </div>				
-          <h4 class="modal-title">Register</h4>	
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        </div>
         <div class="modal-body m-4">
-          <form action="/home" method="POST" enctype="multipart/form-data">
+          <!-- <form action="/home" method="POST" enctype="multipart/form-data">
             <div class="form-group mb-3">
               <input type="text" class="form-control" name="c_name" placeholder="Username" required="required">		
             </div>
@@ -83,13 +77,61 @@
             <div class="form-group mb-3 text-center">
               <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Register</button>
             </div>
-          </form>
+          </form> -->
+
+
+
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+          <form method="POST" action="/auth/register" enctype="multipart/form-data">
+            <p class=" mt-3 text-center">Sign <span>up</span></p>
+            <p class="text-center">
+                <img src="{{url_for('static', filename='images/default.png')}}" id="profile-image"
+                    class="avatar" alt="">
+            </p>
+            <div class="errors">
+
+            </div>
+            <div>
+                <input type="file" accept="image/*" class="signup-input" id="profile-upload"
+                    onchange="loadFile()" name="img"> <br>
+            </div>
+            <div>
+                <input type="text" class="mt-3 signup-input" name="f_name" id="f_name" required
+                    placeholder="First name">
+            </div>
+            <div>
+                <input type="text" class="mt-3 signup-input" name="l_name" id="l_name" required
+                    placeholder="Last name">
+            </div>
+            <div>
+                <input type="text" class="mt-3 signup-input" name="u_name" id="u_name" required
+                    placeholder="username">
+            </div>
+            <div>
+                <input type="password" class="mt-3 signup-input" name="password" id="password" required
+                    placeholder="Password">
+            </div>
+            <div>
+                <input type="password" class="mt-3 signup-input" name="password_confirm" required
+                    id="password_confirm" placeholder="Password confirmation">
+            </div>
+            <button type="submit" class="my-3 submit-btn" id="registered-submit">
+                <div class="spinner-grow text-primary d-none" id="r-spinner" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div> Create Account
+            </button>
+        </form>
+        </div>
+        </div>
         </div>
       </div>
     </div>
   </div> 
 
-  <div id="Login" class="modal fade" tabindex="-1">
+  <!-- <div id="Login" class="modal fade" tabindex="-1">
     <div class="modal-dialog modal-login">
       <div class="modal-content">
         <div class="modal-header">				
@@ -111,7 +153,54 @@
         </div>
       </div>
     </div>
-  </div> 
+  </div>  -->
+
+
+
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+          <div class="modal-header border-bottom-0">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              <div class="form-title text-center">
+                  <h4>Login</h4>
+              </div>
+              <div class="d-flex flex-column text-center">
+                  <form method="POST" action="/auth/login" id="login-form">
+                      <div class="login-error">
+                      </div>
+                      <div class="form-group">
+                          <input type="text" name="u_name" class=" signup-input" id="login-username"
+                              placeholder="Username">
+
+                      </div>
+                      <div class="form-group">
+                          <input type="password" name="password" class=" signup-input" id="login-password"
+                              placeholder="Password">
+
+                      </div>
+                      <button type="submit" class="btn mt-2 btn-info btn-block btn-round">Login</button>
+                  </form>
+
+
+              </div>
+          </div>
+          <div class="modal-footer mt-3 d-flex justify-content-center">
+            <div class="signup-section">Not a member yet? <a href="#a" class="text-success" id="sign-up"
+                    data-dismiss="modal"> Sign Up</a>.</div>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+
 
    <!--***** Modal End *****  -->
 
